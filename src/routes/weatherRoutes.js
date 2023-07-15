@@ -49,7 +49,7 @@ router.get("/city/zipcode/:code", async (req, res) => {
     });
   } catch (err) {
     res.status(404).json({
-      status: "error",
+      status: "Error",
       message: err.message,
       error: err.message,
     });
