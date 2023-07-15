@@ -38,22 +38,22 @@ const weatherController = require("../controllers/weatherController");
 router.get("/city/zipcode/:code", async (req, res) => {
   // TODO: Implement this function
   try {
-    const requesting = req.params.code;
-    const cityData = await weatherController.getWeatherDataByZipCode(
-      requesting
-    );
+    const zipCode = req.params.code;
+    const citydata = await weatherController.getWeatherDataByZipCode(zipCode);
     res.json({
       status: "success",
       message: "Weather data retrieved",
-      error: cityData.forecast,
+      data: citydata.forecast,
     });
   } catch (err) {
+    // console.log(err);
     res.status(404).json({
-      status: "Error",
-      message: err.message,
-      error: err.message,
+      status: "error",
+      message: "ZipCode not found",
+      error: "ZipCode not found",
     });
   }
+  console.log(citydata);
 });
 
 module.exports = router;
