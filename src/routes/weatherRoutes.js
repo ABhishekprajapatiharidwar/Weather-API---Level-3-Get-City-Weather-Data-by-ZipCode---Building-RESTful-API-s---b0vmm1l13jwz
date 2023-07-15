@@ -44,7 +44,7 @@ router.get("/city/zipcode/:code", async (req, res) => {
     );
     res.json({
       status: "success",
-      message: "Weather forecast retrieved",
+      message: "Weather data retrieved",
       error: cityData.forecast,
     });
   } catch (err) {
